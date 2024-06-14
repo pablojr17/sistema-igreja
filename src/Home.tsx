@@ -1,35 +1,118 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./home.css"; // Importando arquivo de estilos
+import "./home.css";
+
+const BibleVerse = () => {
+  const [verse, setVerse] = useState("");
+
+  useEffect(() => {
+    generateVerse();
+  }, []);
+
+  const generateVerse = () => {
+    const books = [
+      "Genesis",
+      "Exodus",
+      "Leviticus",
+      "Numbers",
+      "Deuteronomy",
+      "Joshua",
+      "Judges",
+      "Ruth",
+      "1 Samuel",
+      "2 Samuel",
+      "1 Kings",
+      "2 Kings",
+      "1 Chronicles",
+      "2 Chronicles",
+      "Ezra",
+      "Nehemiah",
+      "Esther",
+      "Job",
+      "Psalms",
+      "Proverbs",
+      "Ecclesiastes",
+      "Song of Solomon",
+      "Isaiah",
+      "Jeremiah",
+      "Lamentations",
+      "Ezekiel",
+      "Daniel",
+      "Hosea",
+      "Joel",
+      "Amos",
+      "Obadiah",
+      "Jonah",
+      "Micah",
+      "Nahum",
+      "Habakkuk",
+      "Zephaniah",
+      "Haggai",
+      "Zechariah",
+      "Malachi",
+      "Matthew",
+      "Mark",
+      "Luke",
+      "John",
+      "Acts",
+      "Romans",
+      "1 Corinthians",
+      "2 Corinthians",
+      "Galatians",
+      "Ephesians",
+      "Philippians",
+      "Colossians",
+      "1 Thessalonians",
+      "2 Thessalonians",
+      "1 Timothy",
+      "2 Timothy",
+      "Titus",
+      "Philemon",
+      "Hebrews",
+      "James",
+      "1 Peter",
+      "2 Peter",
+      "1 John",
+      "2 John",
+      "3 John",
+      "Jude",
+      "Revelation",
+    ];
+
+    const randomBook = books[Math.floor(Math.random() * books.length)];
+    const randomChapter = Math.floor(Math.random() * 50) + 1;
+    const randomVerse = Math.floor(Math.random() * 20) + 1;
+
+    fetch(`https://bible-api.com/${randomBook}+${randomChapter}:${randomVerse}`)
+      .then((response) => response.json())
+      .then((data) => setVerse(`${data.reference}: ${data.text}`));
+  };
+
+  return (
+    <div className="card">
+      <h3>Versículo Aleatório</h3>
+      <p className="versiculo-text">&ldquo;{verse}&rdquo;</p>
+    </div>
+  );
+};
 
 function Home() {
   const [pastor, setPastor] = useState("");
   const [tesoureiros, setTesoureiros] = useState<String[]>([]);
-  const [versiculo, setVersiculo] = useState("");
+  const [eventoDestaque, setEventoDestaque] = useState("");
 
   useEffect(() => {
     // Obter os nomes do pastor e dos tesoureiros (supondo que você os obtenha de alguma fonte)
     setPastor("Cenilson Gomes");
     setTesoureiros(["Pablo", "Raiane"]);
 
-    // Obter um versículo aleatório da API
-    const fetchVersiculoAleatorio = async () => {
-      try {
-        const response = await axios.get(
-          "https://www.abibliadigital.com.br/api/verses/nvi/random"
-        );
-        setVersiculo(response.data.text);
-      } catch (error) {
-        console.error("Erro ao obter versículo:", error);
-      }
-    };
-
-    fetchVersiculoAleatorio();
+    // Exemplo de evento em destaque
+    setEventoDestaque("Culto Especial de Páscoa - Domingo às 10h");
   }, []);
 
   return (
     <div className="home-container">
-      <h1>Home</h1>
+      <h1>Bem-vindo à Igreja Assembleia de Deus</h1>
       <div>
         <h2>Pastor: {pastor}</h2>
         <h2>Tesoureiros:</h2>
@@ -39,10 +122,12 @@ function Home() {
           ))}
         </ul>
       </div>
-      {versiculo && (
+      {/* Componente BibleVerse para exibir o versículo aleatório */}
+      <BibleVerse />
+      {eventoDestaque && (
         <div className="card">
-          <h3>Versículo Aleatório</h3>
-          <p className="versiculo-text">&ldquo;{versiculo}&rdquo;</p>
+          <h3>Evento em Destaque</h3>
+          <p>{eventoDestaque}</p>
         </div>
       )}
     </div>
