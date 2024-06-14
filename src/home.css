@@ -1,0 +1,51 @@
+/* Home.css */
+
+.home-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.home-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home-container div {
+  margin-bottom: 20px;
+}
+
+.home-container h2 {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.home-container ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.home-container ul li {
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.card h3 {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.versiculo-text {
+  font-size: 1.1em;
+  color: #555;
+  text-align: center;
+  margin-top: 0;
+}

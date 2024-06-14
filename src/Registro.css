@@ -1,0 +1,82 @@
+/* Registro.css */
+
+.registro-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.registro-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.registro-container .form-group {
+  margin-bottom: 15px;
+}
+
+.registro-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.registro-container .form-group input {
+  width: calc(100% - 16px); /* Leva em conta o padding */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.registro-container .form-group input[type="date"] {
+  appearance: none; /* Remove a seta padrão para o input de data */
+}
+
+.registro-container .form-group input[type="number"] {
+  -moz-appearance: textfield; /* Para Firefox */
+}
+
+.registro-container .button-group {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.registro-container .button-group button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.registro-container .button-group button:hover {
+  background-color: #0056b3;
+}
+
+.registro-container .table-container {
+  margin-top: 20px;
+}
+
+.registro-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.registro-container table th,
+.registro-container table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.registro-container table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+  .registro-container .form-group input {
+    width: calc(100% - 12px); /* Leva em conta o padding */
+    padding: 6px;
+  }
+}

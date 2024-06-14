@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// App.tsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Acompanhamento from "./Acompanhamento";
+import Registro from "./Registro";
+import Home from "./Home"; // Importe o componente Home
+import "./App.css";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav className="navbar">
+        <h1 className="logo">Igreja Assembleia de Deus</h1>
+        <ul className="nav-links">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/registro">Registro de Culto</Link>
+          </li>
+          <li>
+            <Link to="/acompanhamento">Acompanhamento</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/registro" element={<Registro />} />
+        <Route path="/acompanhamento" element={<Acompanhamento />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

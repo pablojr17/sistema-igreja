@@ -1,0 +1,82 @@
+/* Acompanhamento.css */
+.container {
+  padding: 20px;
+}
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.summary h2 {
+  font-size: 1em;
+}
+
+.total-oferta,
+.total-dizimos,
+.total-geral {
+  flex: 1 1 calc(33% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin: 5px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card {
+  flex: 1 1 calc(33% - 20px);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  max-width: 300px;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.2em;
+}
+
+.card ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.card ul li {
+  margin-bottom: 5px;
+}
+
+.card p {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+  .summary {
+    flex-direction: column;
+  }
+  .total-oferta,
+  .total-dizimos,
+  .total-geral {
+    flex: 1 1 100%;
+  }
+  .cards {
+    justify-content: flex-start;
+  }
+  .card {
+    flex: 1 1 calc(50% - 20px);
+    max-width: none;
+  }
+}
