@@ -32,7 +32,13 @@ function Acompanhamento() {
   useEffect(() => {
     const fetchCultos = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/cultos");
+        const response = await axios.get(
+          "https://igreja-api.vercel.app/cultos"
+        );
+
+        // const response = await axios.get(
+        //   "https://data-sistema.vercel.app/db.json"
+        // );
         setCultos(response.data);
 
         const totalOferta = response.data.reduce(

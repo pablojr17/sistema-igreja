@@ -107,12 +107,15 @@ function Home() {
     setTesoureiros(["Pablo", "Raiane"]);
 
     // Exemplo de evento em destaque
-    setEventoDestaque("Culto Especial de Páscoa - Domingo às 10h");
+    setEventoDestaque("");
   }, []);
 
   return (
     <div className="home-container">
-      <h1>Bem-vindo à Igreja Assembleia de Deus</h1>
+      <h1>
+        Bem-vindo ao sistema de acompanhamento financeiro da Igreja Assembleia
+        de Deus - Cotegipe Deus
+      </h1>
       <div>
         <h2>Pastor: {pastor}</h2>
         <h2>Tesoureiros:</h2>
@@ -124,12 +127,6 @@ function Home() {
       </div>
       {/* Componente BibleVerse para exibir o versículo aleatório */}
       <BibleVerse />
-      {eventoDestaque && (
-        <div className="card">
-          <h3>Evento em Destaque</h3>
-          <p>{eventoDestaque}</p>
-        </div>
-      )}
     </div>
   );
 }

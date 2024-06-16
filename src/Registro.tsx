@@ -30,7 +30,9 @@ function Registro() {
     };
 
     try {
-      await axios.post("http://localhost:5000/cultos", dados);
+      await axios.post("https://igreja-api.vercel.app/cultos", dados);
+
+      // await axios.post("https://data-sistema.vercel.app/db.json", dados);
       alert("Dados enviados com sucesso!");
     } catch (error) {
       console.error("Erro ao enviar dados:", error);
